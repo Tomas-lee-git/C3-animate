@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+
+        .robot {
+            /* border: 1px solid gray; */
+            margin: 50px auto;
+            width: 400px;
+            height: 400px;
+        }
+
+        .robot > div {
+            background-color: yellowgreen;
+        }
+
+        /* 头部 */
+        .head {
+            width: 230px;
+            margin: 0 auto;
+            height: 105px;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            position: relative;
+        }
+
+        .head::before,
+            /*(⊙o⊙)…,这真是眼瞎啊,看清楚了啊,这里是逗号啊,
+            啊啊啊啊啊啊啊啊啊啊啊啊啊,不是什么复制啊啊啊啊啊,握草啊!!!!!!!!
+            这他妈是并集选择器啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊*/
+            /*伪类的样式不会继承自父元素,也不会被子元素继承*/
+        .head::after {
+            content: "";
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            position: absolute;
+            top: 40px;
+        }
+
+        .head::before {
+            left: 50px;
+        }
+
+        .head::after {
+            right: 50px;
+        }
+
+        /* 触须 */
+        .line {
+            position: relative;
+            width: 230px;
+            margin: 0 auto;
+        }
+
+        .line::before,
+        .line::after {
+            content: '';
+            background-color: yellowgreen;
+            /*伪类不会继承父元素的样式 比如background-color???*/
+            /* * 无法匹配到 伪元素 生成的 标签 */
+            width: 4px;
+            height: 50px;
+            border-radius: 2px;
+            position: absolute;
+            top: -20px;
+            transform-origin: bottom;
+        }
+
+        .line::before {
+            left: 50px;
+            transform: rotate(-20deg);
+        }
+
+        .line::after {
+            right: 50px;
+            transform: rotate(20deg);
+        }
+
+        /* 身体 */
+        .body {
+            width: 230px;
+            height: 170px;
+            border-radius: 0 0 20px 20px;
+            margin: 10px auto 0;
+            position: relative;
+        }
+
+        .body::before,
+        .body::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 170px;
+            border-radius: 25px;
+            background-color: yellowgreen;
+            transform-origin: top;
+            /*如果不设置这个参照点,会相对于谁运动?????????*/
+        }
+
+        .body::before {
+            left: -60px;
+        }
+
+        .body::after {
+            right: -60px;
+        }
+
+        /* 腿部 */
+        .foot {
+            margin: -20px auto;
+            width: 230px;
+            position: relative;
+        }
+
+        .foot::before,
+        .foot::after {
+            content: '';
+            position: absolute;
+            height: 120px;
+            width: 50px;
+            background-color: yellowgreen;
+            border-radius: 25px;
+        }
+
+        .foot::before {
+            left: 40px;
+        }
+
+        .foot::after {
+            right: 40px;
+        }
+
+        /* 添加过渡效果 */
+        /* * 无法匹配到 伪元素 生成的 标签 */
+        *, ::before, ::after {
+            transition: all 1s;
+        }
+
+        /*.root:hover .head {*/
+            /*transform-origin: center bottom;*/
+            /*transform: rotate(80deg);*/
+        /*}*/
+
+        /*机器人扭头的动作怎么实现?????????*/
+
+        .robot:hover .head::before, .robot:hover .head::after {
+            background-color: hotpink;
+        }
+
+        .robot:hover .line::before {
+            transform: rotate(-45deg);
+        }
+
+        .robot:hover .line::after {
+            transform: rotate(45deg);
+        }
+
+        .robot:hover .body::before {
+            transform: rotate(30deg);
+        }
+
+        .robot:hover .body::after {
+            transform: rotate(-30deg);
+        }
+
+        /* 使用缩放的方式 图形 可能会发生改变 所以 需要根据需求进行选择 */
+        .robot:hover .foot::before, .robot:hover .foot::after {
+            height: 150px;
+            /*transform: scaleY(1.3);*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="robot">
+    <div class="line"></div>
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="foot"></div>
+</div>
+</body>
+</html>
