@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>robot</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+
+        .robot {
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            /*border: 1px solid gray;*/
+
+            /*-webkit-transition: all 1s;*/
+            /*-moz-transition: all 1s;*/
+            /*-ms-transition: all 1s;*/
+            /*-o-transition: all 1s;*/
+            /*transition: all 1s;*/
+
+
+        }
+
+        .robot > div {
+            background-color: yellowgreen;
+        }
+
+        .head {
+            width: 230px;
+            height: 105px;
+            margin: 0 auto;
+            background-color: yellowgreen;
+            border-radius:100px 100px  0 0;
+            /*border-top-left-radius: 100px;*/
+            /*border-top-right-radius: 100px;*/
+            position: relative;
+        }
+
+        .head::before,
+        .head::after {
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            margin: 0 auto;
+            background-color: orange;
+            top: 40px;
+        }
+
+        .head::before {
+            right: 50px;
+        }
+
+        .head::after {
+            left: 50px;
+        }
+
+        .line {
+            width: 230px;
+            /*height: 10px;*/
+            margin: 0 auto;
+            background-color: yellowgreen;
+            position: relative;
+        }
+
+        .line::before,
+        .line::after {
+            content: "";
+
+            /*content:"";一定要有这行代码才会起作用!!!!!!!!!!!!!!!!!!!!!!!*/
+
+            height: 50px;
+            width: 4px;
+            margin: 0 auto;
+            background-color: yellowgreen;
+            border-radius: 20px;
+            position: absolute;
+            top: -35px;
+            transform-origin: bottom;
+        }
+
+        .line::before {
+            left: 50px;
+            transform: rotate(-30deg)
+        }
+
+        .line::after {
+            right: 50px;
+            transform: rotate(30deg)
+        }
+
+        .body {
+            width: 230px;
+            height: 170px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .body::before,
+        .body::after {
+            content: "";
+            /*一定要加上 content:""; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+            width: 50px;
+            height: 170px;
+            margin: 0 auto;
+            background-color: yellowgreen;
+            border-radius: 25px;
+            position: absolute;
+            transform-origin:top;
+        }
+
+        .body::before {
+            left:-60px;
+        }
+
+        .body::after {
+            right: -60px;
+        }
+
+        .foot {
+            width: 230px;
+            /*height: 10px;*/
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .foot::before,
+        .foot::after {
+            content: "";
+            width: 50px;
+            height: 170px;
+            background-color: yellowgreen;
+            border-radius: 25px;
+            margin: 0 auto;
+            position: absolute;
+            top: -50px;
+        }
+
+        .foot::after {
+            left: 50px;
+        }
+
+        .foot::before {
+            right: 50px;
+        }
+
+        /*动起来*/
+        *,::before, ::after {
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
+            -ms-transition: all 1s;
+            -o-transition: all 1s;
+            transition: all 1s;
+        }
+
+        .robot:hover .head::before,
+        .robot:hover .head::after {
+            background-color: hotpink;
+        }
+
+        .robot:hover .line::after {
+            transform: rotate(60deg);
+        }
+
+        .robot:hover .line::before {
+            transform: rotate(-60deg);
+        }
+
+        .robot:hover .body::after {
+            /*transform-origin:top;*/
+            transform: rotate(-450deg);
+        }
+        .robot:hover .body::before {
+            /*transform-origin:top;*/
+            transform: rotate(450deg);
+        }
+        .robot:hover .foot::before,
+        .robot:hover .foot::after {
+            transform:translate(0,20px) rotate(450deg);;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="robot">
+    <div class="line"></div>
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="foot"></div>
+</div>
+</body>
+</html>

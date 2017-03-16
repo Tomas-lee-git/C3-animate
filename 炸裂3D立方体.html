@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D炸裂旋转立方体</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, yellowgreen 20%, greenyellow 80%);
+        }
+
+        .wrap {
+            margin: 200px auto;
+            persective: 1000px;
+            transform-style: preserve-3d;
+            animation: autoRotate 20s infinite linear
+        }
+  /*旋转动画*/
+        @keyframes autoRotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg) ;
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        /*构成三个立方体的基本面*/
+        .cube {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            position: relative;
+
+        }
+
+        /*大立方体*/
+        .cube > div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: white;
+            border: 1px solid gray;
+            opacity: .2;
+            font: bold 36px/200px "Microsoft Yahei";
+            text-align: center;
+            color: #0d0d24;
+        }
+
+        .out-front {
+            transform: rotateY(0deg) translateZ(100px);
+        }
+
+        .out-back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .out-left {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .out-right {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .out-top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .out-bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        /*小立方体*/
+        .cube > span {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid gray;
+            opacity: .1;
+            top: 50px;
+            left: 50px;
+        }
+
+        .in-front {
+            transform: rotateY(0deg) translateZ(50px);
+        }
+
+        .in-back {
+            transform: rotateY(180deg) translateZ(50px);
+        }
+
+        .in-left {
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .in-right {
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .in-top {
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .in-bottom {
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        /*炸裂的立方体*/
+        .wrap:hover .out-front {
+            transform: rotateY(0deg) translateZ(200px);
+        }
+
+       .wrap:hover  .out-back {
+            transform: rotateY(180deg) translateZ(200px);
+        }
+
+        .wrap:hover .out-left {
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .wrap:hover .out-right {
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .wrap:hover .out-top {
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .wrap:hover  .out-bottom{
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="cube">
+        <div class="out-front">前面</div>
+        <div class="out-back">后面</div>
+        <div class="out-left">左面</div>
+        <div class="out-right">右面</div>
+        <div class="out-top">上面</div>
+        <div class="out-bottom">下面</div>
+        <span class="in-front"></span>
+        <span class="in-back"></span>
+        <span class="in-left"></span>
+        <span class="in-right"></span>
+        <span class="in-top"></span>
+        <span class="in-bottom"></span>
+    </div>
+
+</div>
+</body>
+</html>

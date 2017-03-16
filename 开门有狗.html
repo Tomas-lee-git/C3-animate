@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>开门</title>
+    <style>
+        body{
+            -webkit-transition: all 5s;
+            -moz-transition: all 5s;
+            -ms-transition: all 5s;
+            -o-transition: all 5s;
+            transition: all 5s;
+        }
+        .door {
+            width: 360px;
+            height: 270px;
+            margin: 100px auto;
+            background: url("images/dog.gif") no-repeat center;
+            background-size: cover;
+            position: relative;
+            perspective: 800px;
+            transform-style: preserve-3d;
+
+            /*-webkit-transition: all 5s;*/
+            /*-moz-transition: all 5s;*/
+            /*-ms-transition: all 5s;*/
+            /*-o-transition: all 5s;*/
+            /*transition: all 5s;*/
+            /*渐变必须单独加到每一个需要的元素身上,无法继承!!!!!!!!!!!!!!!*/
+        }
+
+        *,.left,.right{
+            -webkit-transition: all 5s;
+            -moz-transition: all 5s;
+            -ms-transition: all 5s;
+            -o-transition: all 5s;
+            transition: all 5s;
+        }
+        .left {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+            float: left;
+            position: relative;
+            transform-origin: left center;
+            /*-webkit-transition: all 5s;*/
+            /*-moz-transition: all 5s;*/
+            /*-ms-transition: all 5s;*/
+            /*-o-transition: all 5s;*/
+            /*transition: all 5s;*/
+            backface-visibility: hidden;
+        }
+
+        .right {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+            float: left;
+            position: relative;
+            transform-origin: right center;
+            /*-webkit-transition: all 5s;*/
+            /*-moz-transition: all 5s;*/
+            /*-ms-transition: all 5s;*/
+            /*-o-transition: all 5s;*/
+            /*transition: all 5s;*/
+            backface-visibility: hidden;
+        }
+
+        .left::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: orange;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .right::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: orange;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .door:hover .left {
+            transform: rotateY(-120deg)
+        }
+
+        .door:hover .right {
+            transform: rotateY(120deg)
+        }
+    </style>
+</head>
+<body>
+<div class="door">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

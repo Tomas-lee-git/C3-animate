@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>box</title>
+    <style>
+        body{
+            perspective: 500px;
+            background-color: skyblue;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+            /*background-color: teal;*/
+            position: relative;
+            margin: 100px auto;
+            /*perspective: 500px;*/
+            transform-style:preserve-3d;
+
+            -webkit-transition: all 15s;
+            -moz-transition: all 15s;
+            -ms-transition: all 15s;
+            -o-transition: all 15s;
+            transition: all 15s;
+        }
+        .face{
+            width: 100%;
+            height: 100%;
+            line-height:200px;
+            font-size:150px;
+            font-weight:900;
+            text-align:center;
+            position: absolute;
+
+        }
+        .item1{
+            background-color: orange;
+            /*transition: all 15s;*/
+            /*transform:translateZ(100px);*/
+            transform:rotateY(0deg) translateZ(100px);
+        }
+        .item2{
+            background-color: red;
+            /*transition: all 15s;*/
+            transform:rotateY(180deg) translateZ(100px);
+        }
+        .item3{
+            background-color: blue;
+            /*transition: all 15s;*/
+            transform:rotateY(90deg) translateZ(100px);
+        }
+        .item4{
+            background-color: pink;
+            /*transition: all 15s;*/
+            transform:rotateY(-90deg) translateZ(100px);
+        }
+        .item5{
+            background-color: green;
+            /*transition: all 15s;*/
+            transform:rotateX(90deg) translateZ(100px);
+        }
+        .item6{
+            background-color: yellowgreen;
+            /*transition: all 15s;*/
+            transform:rotateX(-90deg) translateZ(100px);
+        }
+        .box:hover{
+            transform:rotateX(450deg) rotateY(450deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="item1 face">1</div>
+    <div class="item2 face">2</div>
+    <div class="item3 face">3</div>
+    <div class="item4 face">4</div>
+    <div class="item5 face">5</div>
+    <div class="item6 face">6</div>
+</div>
+</body>
+</html>
